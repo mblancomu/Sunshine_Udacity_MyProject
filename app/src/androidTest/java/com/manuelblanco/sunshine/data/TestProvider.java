@@ -44,7 +44,7 @@ public class TestProvider extends AndroidTestCase {
        Students: Replace the calls to deleteAllRecordsFromDB with this one after you have written
        the delete functionality in the ContentProvider.
      */
-    public void deleteAllRecordsFromProvider() {
+  /*  public void deleteAllRecordsFromProvider() {
         mContext.getContentResolver().delete(
                 WeatherContract.WeatherEntry.CONTENT_URI,
                 null,
@@ -75,7 +75,7 @@ public class TestProvider extends AndroidTestCase {
         );
         assertEquals("Error: Records not deleted from Location table during delete", 0, cursor.getCount());
         cursor.close();
-    }
+    }*/
 
     /*
        This helper function deletes all records from both database tables using the database
@@ -95,16 +95,16 @@ public class TestProvider extends AndroidTestCase {
         Student: Refactor this function to use the deleteAllRecordsFromProvider functionality once
         you have implemented delete functionality there.
      */
-    public void deleteAllRecords() {
+   /* public void deleteAllRecords() {
         deleteAllRecordsFromProvider();
-    }
+    }*/
 
     // Since we want each test to start with a clean slate, run deleteAllRecords
     // in setUp (called by the test runner before each test).
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        deleteAllRecords();
+        //deleteAllRecords();
     }
 
     /*
@@ -417,7 +417,7 @@ public class TestProvider extends AndroidTestCase {
         TestUtilities.TestContentObserver weatherObserver = TestUtilities.getTestContentObserver();
         mContext.getContentResolver().registerContentObserver(WeatherContract.WeatherEntry.CONTENT_URI, true, weatherObserver);
 
-        deleteAllRecordsFromProvider();
+        //deleteAllRecordsFromProvider();
 
         // Students: If either of these fail, you most-likely are not calling the
         // getContext().getContentResolver().notifyChange(uri, null); in the ContentProvider
